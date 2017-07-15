@@ -1,0 +1,23 @@
+<div>
+	
+	<!--Caso não esteja ativo o Bluetooth do aparelho-->
+	<div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; align-content: center" ng-show="!bluetoothEnabled">
+		<a class="waves-effect waves-light btn-large"><i class="material-icons left">settings_bluetooth</i>Ligar Bluetooth</a>
+	</div>
+
+	<!--Bluetooth ativo do aparelho-->
+	<div class="row" ng-show="bluetoothEnabled">
+		<div class="col s12 m7">
+			<a class="waves-effect waves-light btn-large" style="width: 100%" ng-click="findBeerGo()">
+				<i class="material-icons left">bluetooth</i>
+				Procurar BeerGo!
+			</a>
+		</div>
+	</div>
+	<div class="row" ng-show="bluetoothList.length > 0">
+		<ul class="collection with-header">
+        <li class="collection-header"><h4>BeerGo!</h4></li>
+        <li class="collection-item" ng-repeat="bt in bluetoothList"><div>{{bt.Name}}<a href="#/tester" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+      </ul>
+	</div>
+</div>
